@@ -8,13 +8,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+import { auth } from '../firebase/config';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import CustomTextField from '../common/CustomTextField'; 
-import FormSnackbar from '../common/FormSnackbar'; 
-import ErrorAlert from '../common/ErrorAlert'; 
+import CustomTextField from '../components/common/CustomTextField'; 
+import FormSnackbar from '../components/common/FormSnackbar'; 
+import ErrorAlert from '../components/common/ErrorAlert'; 
 
 const defaultTheme = createTheme();
 
@@ -37,7 +37,7 @@ const ResetPassword = () => {
       .then(() => {
         setSuccessMessage('Password reset email sent. Please check your inbox.');
         resetForm();
-        setTimeout(() => navigate('/login'), 3000);
+        navigate('/login')
       })
       .catch((error) => {
         setError(getErrorMessage(error.code));

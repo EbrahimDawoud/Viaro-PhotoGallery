@@ -8,13 +8,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+import { auth } from '../firebase/config';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import CustomTextField from '../common/CustomTextField'; 
-import FormSnackbar from '../common/FormSnackbar'; 
-import ErrorAlert from '../common/ErrorAlert'; 
+import CustomTextField from '../components/common/CustomTextField'; 
+import FormSnackbar from '../components/common/FormSnackbar'; 
+import ErrorAlert from '../components/common/ErrorAlert'; 
 import { Grid, Link } from '@mui/material';
 
 const defaultTheme = createTheme();
@@ -55,7 +55,7 @@ const SignUp = () => {
       .then(() => {
         setSuccessMessage('Sign up successful! Redirecting to homepage...');
         resetForm();
-        setTimeout(() => navigate('/home'), 3000); // Redirect after 3 seconds
+        navigate('/login')
       })
       .catch((error) => {
         setError(getErrorMessage(error.code));

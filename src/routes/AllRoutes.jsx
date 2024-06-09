@@ -1,13 +1,13 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import SignIn from '../components/Auth/SignIn';
-import SignUp from '../components/Auth/SignUp';
+import SignIn from '../pages/SignInPage';
+import SignUp from '../pages/SignUpPage';
 import PhotoGrid from '../pages/HomePage';
-import Favorites from '../pages/Favourite';
-import NotFound from  '../pages/NotFound';
+import Favorites from '../pages/FavouritePage';
+import NotFound from  '../pages/NotFoundPage';
 import { useAuth } from '../context/AuthContext';
 import Loading from '../components/common/Loading';
-import ResetPassword from '../components/Auth/ResetPassword';
+import ResetPassword from '../pages/ResetPassword';
 
 const AllRoutes = () => {
   const { currentUser, loading } = useAuth();

@@ -87,7 +87,7 @@ const PhotoGrid = () => {
   }
 
   return (
-    <Box sx={{ flexGrow: 1, mt: 4 }}>
+    <Box sx={{ flexGrow: 1, mt: 6 }}>
       <Grid container spacing={3}>
         {photos.map((photo) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>

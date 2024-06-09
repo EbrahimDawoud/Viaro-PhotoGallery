@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+import { auth } from '../firebase/config';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form} from 'formik';
 import { Grid, Link } from '@mui/material';
 import * as Yup from 'yup';
-import CustomTextField from '../common/CustomTextField';
-import FormSnackbar from '../common/FormSnackbar';
-import ErrorAlert from '../common/ErrorAlert';
+import CustomTextField from '../components/common/CustomTextField';
+import FormSnackbar from '../components/common/FormSnackbar';
+import ErrorAlert from '../components/common/ErrorAlert';
 
 const defaultTheme = createTheme();
 
@@ -35,7 +34,7 @@ const SignIn = () => {
       .then(() => {
         setSuccessMessage('Sign in successful! Redirecting to homepage...');
         resetForm();
-        setTimeout(() => navigate('/home'), 3000);
+        navigate('/login')
       })
       .catch((error) => {
         setError(getErrorMessage(error.code));
@@ -58,7 +57,6 @@ const SignIn = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs" sx={{minHeight:'60vh'}}>
-        <CssBaseline />
         <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
