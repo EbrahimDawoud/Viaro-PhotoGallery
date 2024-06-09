@@ -1,4 +1,3 @@
-// src/components/Auth/ResetPassword.jsx
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -13,9 +12,9 @@ import { auth } from '../../firebase/config';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import CustomTextField from '../common/CustomTextField'; // Reusable component for text fields
-import FormSnackbar from '../common/FormSnackbar'; // Reusable component for snackbars
-import ErrorAlert from '../common/ErrorAlert'; // Reusable component for error alerts
+import CustomTextField from '../common/CustomTextField'; 
+import FormSnackbar from '../common/FormSnackbar'; 
+import ErrorAlert from '../common/ErrorAlert'; 
 
 const defaultTheme = createTheme();
 
